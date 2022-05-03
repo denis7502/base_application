@@ -1,0 +1,17 @@
+Скачать докер mosquitto
+
+Поднять свою маквлан сеть в докере
+    https://blog.oddbit.com/post/2018-03-12-using-docker-macvlan-networks/
+
+Поднять докер с mosquitto
+
+Настроить переадресацию с порта 1883 на localhost:1883
+    apk add iptables
+    iptables -t nat -I PREROUTING -i eth0 -p tcp --dport 1883  -j DNAT --to 127.0.0.1:1883
+    sysctl -w net.ipv4.conf.eth0.route_localnet=1
+
+Отправить сообщение
+    https://voltiq.ru/cloud-mqtt-mosquitto-broker-access-anywhere-digital-ocean/
+
+Для Python
+    https://www.eclipse.org/paho/index.php?page=clients/python/index.php
